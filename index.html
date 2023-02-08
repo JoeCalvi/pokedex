@@ -23,13 +23,43 @@
           loading="lazy">
         <span class="ms-2">pokedex</span>
       </a>
+      <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">My Pokemon</button>
     </nav>
   </header>
   <main>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+      <div class="row justify-content-start">
+        <div class="col-8 text-center m-3" id="observed-pokemon">
+          <div class="row justify-content-center">
+            <div class="col-6 my-2 p-2 text-center border border-dark rounded">
+              <h5>Name: Charizard</h5>
+            </div>
+          </div>
+          <img class="pokemon-img"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+            alt="">
+          <div class="row justify-content-center">
+            <div class="col-8 border border-dark rounded p-3">
+              <div class="row">
+                <div class="col-6 d-flex align-items-center justify-content-start">
+                  <h6>HP: 100</h6>
+                </div>
+                <div class="col-6 d-flex align-items-center justify-content-end">
+                  <h6>Weight: 550</h6>
+                </div>
+                <div class="col-6 d-flex align-items-center justify-content-start">
+                  <h6>Damage: 100</h6>
+                </div>
+                <div class="col-6 d-flex align-items-center justify-content-end">
+                  <h6>Height: 10'5"</h6>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-outline-dark">Catch?</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -40,6 +70,17 @@
     </div>
   </footer>
 
+  <!-- STUB offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <button class="btn btn-outline-dark">Charizard</button>
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
     integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -48,7 +89,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
     integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
-        <script src="app/App.js" type="module"></script>
+  <script src="app/App.js" type="module"></script>
 </body>
 
 </html>

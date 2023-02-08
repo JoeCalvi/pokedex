@@ -6,7 +6,8 @@ class WildPokemonService {
 
     async getWildPokemon() {
         const res = await poke_api.get('/pokemon')
-        console.log('[wild pokemon data]', res.data.results)
+        appState.wildPokemon.push(res.data.results)
+        console.log('[wild pokemon data]', appState.wildPokemon)
 
         // NOTE res.data.next to access next page of pokemon
     }
