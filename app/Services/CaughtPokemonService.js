@@ -7,7 +7,8 @@ class CaughtPokemonService {
 
     async getCaughtPokemon() {
         const res = await sandbox_api.get('/pokemon')
-        console.log('[caught pokemon data]', res.data)
+        appState.caughtPokemon = res.data
+        console.log('[caught pokemon data]', appState.caughtPokemon)
     }
 
     async catchPokemon() {
@@ -15,7 +16,8 @@ class CaughtPokemonService {
         if (roll >= 70) {
             const res = await sandbox_api.post('/pokemon', appState.foundWildPokemon)
             let newPokemon = new CaughtPokemon(res.data)
-            appState.caughtPokemon.push(newPokemon)
+            let myPokemon = appState.caughtPokemon
+            myPokemon.push(newPokemon)
             appState.emit('caughtPokemon')
             appState.observedCaughtPokemon = newPokemon
             console.log(roll, '[caught pokemon]', appState.caughtPokemon)

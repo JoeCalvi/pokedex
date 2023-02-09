@@ -20,9 +20,10 @@
 
 <body class="game-font background-img">
   <header class="text-center p-3">
-      <button class="btn btn-outline-light">My Pokedex</button>
-      <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight">Wild Pokemon</button>
+    <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight-caught"
+      aria-controls="offcanvasRight" onclick="app.caughtPokemonController.show()">My Pokedex</button>
+    <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight" onclick="app.wildPokemonController.show()">Wild Pokemon</button>
   </header>
   <main>
     <div class="container-fluid">
@@ -41,7 +42,7 @@
     </div>
   </main>
   <footer>
-  
+
   </footer>
 
   <!-- STUB offcanvas -->
@@ -51,6 +52,20 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" id="pokemon">
+      <!-- <button class="btn btn-outline-dark">Charizard</button> -->
+    </div>
+    <div class="my-2 text-center">
+      <button class="btn btn-outline-dark">Previous</button>
+      <button class="btn btn-outline-dark">Next</button>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight-caught" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">My Pokemon</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="caught-pokemon">
       <!-- <button class="btn btn-outline-dark">Charizard</button> -->
     </div>
     <div class="my-2 text-center">

@@ -42,4 +42,8 @@ export class WildPokemonController {
             Pop.error(error)
         }
     }
+
+    show(){
+        _drawWildPokemon()
+    }
 }
