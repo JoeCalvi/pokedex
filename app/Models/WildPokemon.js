@@ -3,7 +3,7 @@
 export class WildPokemon {
     constructor(data) {
         this.name = data.name
-        this.img = data.sprites['official-artwork'].front_default
+        this.img = data.sprites.other['official-artwork'].front_default
         this.hp = data.stats[0].base_stat
         this.dmg = data.stats[1].base_stat
         this.height = data.height
@@ -40,4 +40,12 @@ export class WildPokemon {
           </div>
           `
     }
+
+    static WildPokemonButtonTemplate(wildPokemon) {
+        return /*html*/ `
+        <button class="btn btn-outline-dark mb-2 w-100" 
+        onclick="app.wildPokemonController.getWildPokemonByName('${wildPokemon.name}')">${wildPokemon.name}</button>
+        `
+    }
+
 }
