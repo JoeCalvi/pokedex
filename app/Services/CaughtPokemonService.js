@@ -11,6 +11,12 @@ class CaughtPokemonService {
         console.log('[caught pokemon data]', appState.caughtPokemon)
     }
 
+    async getCaughtPokemonById(id) {
+        const res = await sandbox_api.get('pokemon/' + id)
+        appState.observedCaughtPokemon = res.data
+        console.log(appState.observedCaughtPokemon)
+    }
+
     async catchPokemon() {
         let roll = (Math.random() * 100)
         if (roll >= 70) {

@@ -4,6 +4,30 @@ import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 import { CaughtPokemon } from "../Models/CaughtPokemon.js";
 
+function _drawObservedCaughtPokemon() {
+    let observedPokemon = appState.observedCaughtPokemon
+    let template = `
+    <div class="row justify-content-center">
+            <div class="col-6 my-2 p-2 text-center border border-light rounded glass-card">
+              <h5>Name: ${observedPokemon.name}</h5>
+            </div>
+          </div>
+          <img class="pokemon-img"
+            src="${observedPokemon.img}"
+            alt="">
+          <div class="row border border-light rounded p-3 glass-card">
+            <div class="col-12 d-flex align-items-center justify-content-evenly">
+              <h6>Weight: ${observedPokemon.weight}</h6>
+              <h6>Height: ${observedPokemon.height}</h6>
+            </div>
+            <div>
+              <button class="btn btn-outline-danger" 
+              onclick="app.caughtPokemonController.removePokemon()">Remove From Pokedex</button>
+            </div>
+          </div>
+    `
+    setHTML('observed-pokemon', template)
+}
 
 function _drawCaughtPokemon() {
     let template = ''
@@ -17,6 +41,7 @@ export class CaughtPokemonController {
         this.getCaughtPokemon()
         _drawCaughtPokemon()
         appState.on('caughtPokemon', _drawCaughtPokemon)
+        appState.on('observedCaughtPokemon', _drawObservedCaughtPokemon)
         console.log(appState.caughtPokemon)
     }
 
@@ -27,6 +52,16 @@ export class CaughtPokemonController {
             console.error(error)
             Pop.error(error)
         }
+    }
+
+    async getCaughtPokemonById(id) {
+        try {
+            await caughtPokemonService.getCaughtPokemonById(id)
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+
     }
 
     async catchPokemon() {

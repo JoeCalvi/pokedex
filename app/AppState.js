@@ -12,13 +12,13 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/WildPokemon').WildPokemon[]} */
   wildPokemon = []
 
-  /** @type {import('./Models/WildPokemon').WildPokemon} */
+  /** @type {import('./Models/WildPokemon').WildPokemon|null} */
   foundWildPokemon = null
 
   /** @type {import('./Models/CaughtPokemon').CaughtPokemon[]} */
   caughtPokemon = []
 
-  /** @type {import('./Models/CaughtPokemon').CaughtPokemon} */
+  /** @type {import('./Models/CaughtPokemon').CaughtPokemon|null} */
   observedCaughtPokemon = null
 
 }
