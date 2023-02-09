@@ -10,64 +10,38 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.1.96/css/materialdesignicons.min.css"
     integrity="sha512-NaaXI5f4rdmlThv3ZAVS44U9yNWJaUYWzPhvlg5SC7nMRvQYV9suauRK3gVbxh7qjE33ApTPD+hkOW78VSHyeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>pokedex</title>
 </head>
 
-<body>
-  <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">pokedex</span>
-      </a>
+<body class="game-font background-img">
+  <header class="text-center p-3">
+      <button class="btn btn-outline-light">My Pokedex</button>
       <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight">Wild Pokemon</button>
-    </nav>
   </header>
   <main>
     <div class="container-fluid">
       <div class="row justify-content-start">
         <div class="col-8 text-center m-3" id="observed-pokemon">
           <div class="row justify-content-center">
-            <div class="col-6 my-2 p-2 text-center border border-dark rounded">
-              <h5>Name: Charizard</h5>
+            <div class="col-6 my-2 p-2 text-center">
+              <h5>Wanna Catch 'em All?</h5>
             </div>
           </div>
           <img class="pokemon-img"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png"
             alt="">
-          <div class="row justify-content-center">
-            <div class="col-8 border border-dark rounded p-3">
-              <div class="row">
-                <div class="col-6 d-flex align-items-center justify-content-start">
-                  <h6>HP: 100</h6>
-                </div>
-                <div class="col-6 d-flex align-items-center justify-content-end">
-                  <h6>Weight: 550</h6>
-                </div>
-                <div class="col-6 d-flex align-items-center justify-content-start">
-                  <h6>Damage: 100</h6>
-                </div>
-                <div class="col-6 d-flex align-items-center justify-content-end">
-                  <h6>Height: 10'5"</h6>
-                </div>
-              </div>
-              <div>
-                <button class="btn btn-outline-dark">Catch?</button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </main>
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p><small>Made with 💖 by CodeWorks</small></p>
-    </div>
+  <footer>
+  
   </footer>
 
   <!-- STUB offcanvas -->
@@ -78,6 +52,10 @@
     </div>
     <div class="offcanvas-body" id="wild-pokemon">
       <!-- <button class="btn btn-outline-dark">Charizard</button> -->
+    </div>
+    <div class="my-2 text-center">
+      <button class="btn btn-outline-dark">Previous</button>
+      <button class="btn btn-outline-dark">Next</button>
     </div>
   </div>
 

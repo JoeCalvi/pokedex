@@ -14,14 +14,14 @@ export class WildPokemon {
     get FoundWildPokemonTemplate() {
         return /*html*/ `
         <div class="row justify-content-center">
-            <div class="col-6 my-2 p-2 text-center border border-dark rounded">
+            <div class="col-6 my-2 p-2 text-center border border-light rounded glass-card">
               <h5>Name: ${this.name}</h5>
             </div>
           </div>
           <img class="pokemon-img"
             src="${this.img}"
             alt="">
-          <div class="row border border-dark rounded p-3">
+          <div class="row border border-light rounded p-3 glass-card">
             <div class="col-6 d-flex align-items-center justify-content-start">
               <h6>HP: ${this.hp}</h6>
             </div>
@@ -35,7 +35,7 @@ export class WildPokemon {
               <h6>Height: ${this.height}</h6>
             </div>
             <div>
-              <button class="btn btn-outline-dark">Catch?</button>
+              <button class="btn btn-outline-light">Catch?</button>
             </div>
           </div>
           `
