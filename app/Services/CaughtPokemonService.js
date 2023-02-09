@@ -8,13 +8,13 @@ class CaughtPokemonService {
     async getCaughtPokemon() {
         const res = await sandbox_api.get('/pokemon')
         appState.caughtPokemon = res.data
-        console.log('[caught pokemon data]', appState.caughtPokemon)
+        // console.log('[caught pokemon data]', appState.caughtPokemon)
     }
 
     async getCaughtPokemonById(id) {
         const res = await sandbox_api.get('pokemon/' + id)
         appState.observedCaughtPokemon = res.data
-        console.log(appState.observedCaughtPokemon)
+        // console.log(appState.observedCaughtPokemon)
     }
 
     async catchPokemon() {
@@ -26,10 +26,10 @@ class CaughtPokemonService {
             myPokemon.push(newPokemon)
             appState.emit('caughtPokemon')
             appState.observedCaughtPokemon = newPokemon
-            console.log(roll, '[caught pokemon]', appState.caughtPokemon)
+            // console.log(roll, '[caught pokemon]', appState.caughtPokemon)
         } else {
             Pop.toast(`${appState.foundWildPokemon.name} resisted your attempt!`)
-            console.log(roll)
+            // console.log(roll)
         }
     }
 
@@ -38,7 +38,7 @@ class CaughtPokemonService {
         let oldPokeIndex = appState.caughtPokemon.findIndex(p => p.id == pokemonId)
         appState.caughtPokemon.splice(oldPokeIndex, 1)
         appState.emit('caughtPokemon')
-        console.log(appState.caughtPokemon)
+        // console.log(appState.caughtPokemon)
     }
 
 }

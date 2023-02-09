@@ -56,7 +56,7 @@ export class CaughtPokemonController {
         _drawCaughtPokemon()
         appState.on('caughtPokemon', _drawCaughtPokemon)
         appState.on('observedCaughtPokemon', _drawObservedCaughtPokemon)
-        console.log(appState.caughtPokemon)
+        // console.log(appState.caughtPokemon)
     }
 
     async getCaughtPokemon() {
