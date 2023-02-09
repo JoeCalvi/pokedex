@@ -6,7 +6,7 @@ import { WildPokemon } from "../Models/WildPokemon.js";
 
 
 function _drawFoundWildPokemon() {
-    setHTML('observed-pokemon', WildPokemon.FoundWildPokemonTemplate)
+    setHTML('observed-pokemon', appState.foundWildPokemon.FoundWildPokemonTemplate)
 }
 
 function _drawWildPokemon() {
@@ -22,6 +22,7 @@ export class WildPokemonController {
         this.getWildPokemon()
         _drawWildPokemon()
         appState.on('wildPokemon', _drawWildPokemon)
+        appState.on('foundWildPokemon', _drawFoundWildPokemon)
     }
 
     async getWildPokemon() {

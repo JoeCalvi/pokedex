@@ -12,7 +12,7 @@ export class WildPokemon {
 
 
     get FoundWildPokemonTemplate() {
-        return /*html*/`
+        return /*html*/ `
         <div class="row justify-content-center">
             <div class="col-6 my-2 p-2 text-center border border-dark rounded">
               <h5>Name: ${this.name}</h5>
