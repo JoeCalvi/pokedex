@@ -9,6 +9,15 @@ class CaughtPokemonService {
         console.log('[caught pokemon data]', res.data)
     }
 
+    async catchPokemon() {
+        const res = await sandbox_api.post('/pokemon', appState.foundWildPokemon)
+        let newPokemon = new CaughtPokemon(res.data)
+        appState.caughtPokemon.push(newPokemon)
+        appState.emit('caughtPokemon')
+        appState.observedCaughtPokemon = newPokemon
+        console.log('[caught pokemon]', appState.caughtPokemon)
+    }
+
 }
 
 export const caughtPokemonService = new CaughtPokemonService()

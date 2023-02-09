@@ -12,7 +12,7 @@ function _drawFoundWildPokemon() {
 function _drawWildPokemon() {
     let template = ''
     appState.wildPokemon.forEach(p => template += WildPokemon.WildPokemonButtonTemplate(p))
-    setHTML('wild-pokemon', template)
+    setHTML('pokemon', template)
 }
 
 

@@ -35,7 +35,8 @@ export class WildPokemon {
               <h6>Height: ${this.height}</h6>
             </div>
             <div>
-              <button class="btn btn-outline-light">Catch?</button>
+              <button class="btn btn-outline-light" 
+              onclick="app.caughtPokemonController.catchPokemon()">Catch?</button>
             </div>
           </div>
           `

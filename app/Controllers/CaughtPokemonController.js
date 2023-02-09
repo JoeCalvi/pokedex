@@ -17,4 +17,13 @@ export class CaughtPokemonController {
             Pop.error(error)
         }
     }
+
+    async catchPokemon(){
+        try {
+            await caughtPokemonService.catchPokemon()
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
 }
