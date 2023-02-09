@@ -33,6 +33,14 @@ class CaughtPokemonService {
         }
     }
 
+    async removePokemon(pokemonId) {
+        const res = await sandbox_api.delete('/pokemon/' + pokemonId)
+        let oldPokeIndex = appState.caughtPokemon.findIndex(p => p.id == pokemonId)
+        appState.caughtPokemon.splice(oldPokeIndex, 1)
+        appState.emit('caughtPokemon')
+        console.log(appState.caughtPokemon)
+    }
+
 }
 
 export const caughtPokemonService = new CaughtPokemonService()

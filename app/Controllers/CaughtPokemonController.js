@@ -22,7 +22,7 @@ function _drawObservedCaughtPokemon() {
             </div>
             <div>
               <button class="btn btn-outline-danger" 
-              onclick="app.caughtPokemonController.removePokemon()">Remove From Pokedex</button>
+              onclick="app.caughtPokemonController.removePokemon('${observedPokemon.id}')">Remove From Pokedex</button>
             </div>
           </div>
     `
@@ -33,6 +33,20 @@ function _drawCaughtPokemon() {
     let template = ''
     appState.caughtPokemon.forEach(p => template += CaughtPokemon.CaughtPokemonButtonTemplate(p))
     setHTML('caught-pokemon', template)
+}
+
+function _drawPokeball() {
+    let template = `
+    <div class="row justify-content-center">
+            <div class="col-6 my-2 p-2 text-center">
+              <h5>Wanna Catch 'em All?</h5>
+            </div>
+          </div>
+          <img class="pokemon-img"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png"
+            alt="">
+    `
+    setHTML('observed-pokemon', template)
 }
 
 export class CaughtPokemonController {
@@ -67,6 +81,18 @@ export class CaughtPokemonController {
     async catchPokemon() {
         try {
             await caughtPokemonService.catchPokemon()
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
+
+    async removePokemon(pokemonId) {
+        try {
+            if (await Pop.confirm('Are you sure you want to remove this Pokemon?')) {
+                await caughtPokemonService.removePokemon(pokemonId)
+                _drawPokeball()
+            }
         } catch (error) {
             console.error(error)
             Pop.error(error)
