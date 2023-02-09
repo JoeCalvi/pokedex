@@ -2,6 +2,8 @@ import { appState } from "../AppState.js"
 import { WildPokemon } from "../Models/WildPokemon.js"
 import { poke_api } from "./AxiosService.js"
 
+let offset = 0
+
 class WildPokemonService {
 
     async getWildPokemon() {
@@ -10,6 +12,34 @@ class WildPokemonService {
         console.log('[wild pokemon data]', appState.wildPokemon)
 
         // NOTE res.data.next to access next page of pokemon
+    }
+
+    async getPreviousPokemon() {
+        try {
+            if (offset > 0) {
+                offset -= 20
+            }
+            const res = await poke_api.get(`/pokemon/?offset=${offset}&limit=20`)
+            appState.wildPokemon = res.data.results
+            console.log(res.data.results)
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
+
+    async getNextPokemon() {
+        try {
+            if (offset < 1280) {
+                offset += 20
+            }
+            const res = await poke_api.get(`/pokemon/?offset=${offset}&limit=20`)
+            appState.wildPokemon = res.data.results
+            console.log(res.data.results)
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
     }
 
     async getWildPokemonByName(name) {

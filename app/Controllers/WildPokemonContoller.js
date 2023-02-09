@@ -34,6 +34,25 @@ export class WildPokemonController {
         }
     }
 
+    async getPreviousPokemon() {
+        try {
+            await wildPokemonService.getPreviousPokemon()
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
+
+    async getNextPokemon() {
+        try {
+            await wildPokemonService.getNextPokemon()
+            
+        } catch (error) {
+            console.error(error)
+            Pop.error(error)
+        }
+    }
+
     async getWildPokemonByName(name) {
         try {
             await wildPokemonService.getWildPokemonByName(name)
@@ -43,7 +62,7 @@ export class WildPokemonController {
         }
     }
 
-    show(){
+    show() {
         _drawWildPokemon()
     }
 }
