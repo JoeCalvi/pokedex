@@ -18,18 +18,20 @@ class CaughtPokemonService {
     }
 
     async catchPokemon() {
-        let roll = (Math.random() * 100)
-        if (roll >= 70) {
+        let userRoll = (Math.random() * 100)
+        let pokeRoll = (Math.random() * 100)
+        if (userRoll > pokeRoll) {
             const res = await sandbox_api.post('/pokemon', appState.foundWildPokemon)
             let newPokemon = new CaughtPokemon(res.data)
             let myPokemon = appState.caughtPokemon
             myPokemon.push(newPokemon)
             appState.emit('caughtPokemon')
             appState.observedCaughtPokemon = newPokemon
-            // console.log(roll, '[caught pokemon]', appState.caughtPokemon)
+            Pop.toast(`You caught a ${myPokemon.name}!`, 'success', 'center', 3000, true)
+            console.log('[user roll]', userRoll, '[poke roll]', pokeRoll)
         } else {
-            Pop.toast(`${appState.foundWildPokemon.name} resisted your attempt!`)
-            // console.log(roll)
+            Pop.toast(`${appState.foundWildPokemon.name} resisted your attempt!`, 'error', 'center', 3000, true)
+            console.log('[user roll]', userRoll, '[poke roll]', pokeRoll)
         }
     }
 

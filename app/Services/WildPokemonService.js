@@ -9,7 +9,7 @@ class WildPokemonService {
     async getWildPokemon() {
         const res = await poke_api.get('/pokemon')
         appState.wildPokemon = res.data.results
-        // console.log('[wild pokemon data]', appState.wildPokemon)
+        console.log('[wild pokemon data]', appState.wildPokemon)
     }
 
     async getPreviousPokemon() {
